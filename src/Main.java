@@ -9,7 +9,10 @@ public class Main {
             Task5 task5 = new Task5 ();
             Task7 task7 = new Task7 ();
             Task8 task8 = new Task8 ();
-            task8.main();
+            Task8class task8class = new Task8class ();
+            Task9 task9 = new Task9 ();
+            Task10 task10 = new Task10 ();
+            task10.task2();
 
         }
     }

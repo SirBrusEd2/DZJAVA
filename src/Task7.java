@@ -1,5 +1,6 @@
 import java.util.Scanner;
 public class Task7 {
+
     public void DZ (){
         double a, b, sum, c;
         sum = 0;
