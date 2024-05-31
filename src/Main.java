@@ -12,7 +12,7 @@ public class Main {
             Task8class task8class = new Task8class ();
             Task9 task9 = new Task9 ();
             Task10 task10 = new Task10 ();
-            task10.task2();
+            task8class.task2_2();
 
         }
     }

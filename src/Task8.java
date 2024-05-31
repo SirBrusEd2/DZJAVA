@@ -1,11 +1,9 @@
 import java.util.Scanner;
 
 public class Task8 {
-    private static char contourSymbol = '0'; //контур
-    private static char fillSymbol = '-'; //заливка
-    private static char emptiness = ' '; //пустота
-
-    public void main() {
+    /**/
+    private Prymougolnic prymougolnic = new Prymougolnic ();
+    public void Menu() {
         Scanner scanner = new Scanner(System.in);
         double a = 10, b = 10;
         int choice;
@@ -26,13 +24,13 @@ public class Task8 {
 
                     break;
                 case 3:
-                    drawContour(a, b);
+                    prymougolnic.drawContour(a, b);
                     break;
                 case 4:
-                    fillFigure(a, b);
+                    prymougolnic.fillFigure(a, b);
                     break;
                 case 5:
-                    drawFilledFigure(a, b);
+                    prymougolnic.drawFilledFigure(a, b);
                     break;
                 case 6:
                     System.out.println("Завершение программы");
@@ -43,7 +41,7 @@ public class Task8 {
         } while (choice != 6);
     }
 
-    private static void displayMenu() {
+    private void displayMenu() {
         System.out.println("\nМеню:");
         System.out.println("1) Задать символ контура и заливки");
         System.out.println("2) Задать параметры фигуры");
@@ -54,68 +52,13 @@ public class Task8 {
         System.out.print("Выберите пункт меню: ");
     }
 
-    private static void setSymbols(Scanner scanner) {
+    private void setSymbols(Scanner scanner) {
         System.out.print("Введите символ для контура: ");
-        contourSymbol = scanner.next().charAt(0);
+        char contourSymbol = scanner.next().charAt(0);
         System.out.print("Введите символ для заливки: ");
-        fillSymbol = scanner.next().charAt(0);
+        char fillSymbol = scanner.next().charAt(0);
+        prymougolnic.setContourSymbol(contourSymbol);
+        prymougolnic.setFillSymbol(fillSymbol);
     }
-    /*Цвет контура гипотинузы выводится только тогда, когда есть пересечения при отрисовке прямоугольного треугольника, то есть если точка (с её координатами)
-     * точно по формуле пренадлежит (её координаты) гипотинузе, то контур выведется, в ином случае ничего не поятися (чем больше треугольник тем больше точность*/
-    //контур
-    private static void drawContour(double a, double b) {
-        for(int y = (int) a; y>0; y--){
-            for(int x = 0; x< (int)b; x++) {
-                if (y <= -(a / b * x) + a) {
-                    if(y == 1 || x == 0 || y == -(a / b * x) + a){
-                        System.out.printf(" %c ", contourSymbol);                    }
-                    else {
-                        System.out.printf(" %c ", emptiness);
-                    }
-                }
-                else {
-                    System.out.printf(" %c ", emptiness);
-                }
-            }
-            System.out.print("\n");
-        }
-    }
-    //заливка
-    private static void fillFigure(double a, double b) {
-        for(int y = (int) a; y>0; y--){
-            for(int x = 0; x< (int)b; x++) {
-                if (y <= -(a / b * x) + a) {
-                    if(y == 1 || x == 0 || y == -(a / b * x) + a){
-                        System.out.printf(" %c ", emptiness);
-                    }
-                    else {
-                        System.out.printf(" %c ", fillSymbol);
-                    }
-                }
-                else {
-                    System.out.printf(" %c ", emptiness);
-                }
-            }
-            System.out.print("\n");
-        }
-    }
-    //полная фигура
-    private static void drawFilledFigure(double a, double b) {
-        for(int y = (int) a; y>0; y--){
-            for(int x = 0; x< (int)b; x++) {
-                if (y <= -(a / b * x) + a) {
-                    if(y == 1 || x == 0 || y == -(a / b * x) + a){
-                        System.out.printf(" %c ", contourSymbol);
-                    }
-                    else {
-                        System.out.printf(" %c ", fillSymbol);
-                    }
-                }
-                else {
-                    System.out.printf(" %c ", emptiness);
-                }
-            }
-            System.out.print("\n");
-        }
-    }
+
 }
