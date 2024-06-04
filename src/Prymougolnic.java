@@ -7,11 +7,6 @@ public class Prymougolnic {
     private char fillSymbol = '-'; //заливка
     private char emptiness = ' '; //пустота
 
-    public Prymougolnic(char contourSymbol, char fillSymbol) {
-        this.contourSymbol = contourSymbol;
-        this.fillSymbol = fillSymbol;
-    }
-
     public char getContourSymbol() {
         return contourSymbol;
     }

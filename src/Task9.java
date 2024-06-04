@@ -76,6 +76,53 @@ public class Task9 {
         System.out.printf("Накопленное значение: %.2f\n", sumPositive);
         System.out.println("Средне знач. полож. : " + averagePositive);
     }
+    void task2_2() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите шаг (от 0.1 до 0.5): ");
+        double step = scanner.nextDouble();
+
+        int n = 20;
+        double[] nums = new double[n];
+        double[] numz = new double[n];
+
+        for (int i = 0; i < n; i++) {
+            nums[i] = 1 + i * step;
+            if (nums[i] > 3) {
+                nums[i] = 3;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            numz[i] = Math.pow(nums[i], 2) - Math.pow(Math.cos(Math.PI * nums[i]), 2);
+        }
+
+        System.out.println(" Изначальный массив | Полученный массив  ");
+        for (int i = 0; i < n; i++) {
+            System.out.printf("%19.6f | %15.6f\n", nums[i], numz[i]);
+        }
+
+        double sumPositive = 0;
+        double sumNegative = 0;
+        double averagePositive = 0;
+        int countPositive = 0;
+        int countNegative = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > 0) {
+                sumPositive += numz[i];
+                countPositive++;
+            }
+            if (nums[i] < 0) {
+                sumNegative += numz[i];
+                countNegative++;
+            }
+        }
+
+        averagePositive = sumPositive / countPositive;
+
+        System.out.printf("Накопленное значение: %.2f\n", sumPositive);
+        System.out.println("Средне знач. полож. : " + averagePositive);
+    }
     void task3(){
         Scanner scanner = new Scanner(System.in);
 
