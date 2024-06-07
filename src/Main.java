@@ -12,7 +12,10 @@ public class Main {
             Task8class task8class = new Task8class ();
             Task9 task9 = new Task9 ();
             Task10 task10 = new Task10 ();
-            task9.task2_2();
+            Musor musor = new Musor();
+            ReleaseCar releaseCar = new ReleaseCar();
+            Musor.Human human = musor.new Human();
+            releaseCar.vkuscar();
 
         }
     }
